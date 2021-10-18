@@ -94,7 +94,7 @@ It would probably be easiest to deal with each of the four directions up, down, 
 
 Test your code is working as expected, then commit your code with an appropriate commit message like "Implemented wrap around behaviour for agent"
 
-## 4. Add A Desired Velocity
+## 4. Add Seek Behaviour
 
 Next you implement seek behaviour. To do this the agent needs a target. Add a glm::vec2 datamember in the Agent class to be the target that the agent will seek - add the ability to set that target to a meaningful value.
 
@@ -126,28 +126,23 @@ Then integrate the current velocity by the acceleration by adding on the change 
 
 ### Test and commit your code to source control
 
-Test your code is working as expected, then commit your code with an appropriate commit message like "APPROPRIATE MESSAGE"
+Test your code is working as expected, then commit your code with an appropriate commit message like "Added seek behaviour"
 
-## 5. Seek the Mouse
+## 5. Add Flee Behaviour
 
+Evade behaviour is very similar to Seek behaviour, except the desired velocity should be set to the opposite direction as shown below.
+
+```cpp
+glm::vec2 desiredVelocity = glm::normalize(m_Position - m_Target);
+```
 ### Know your next commit!
 
 ### Test and commit your code to source control
 
-Test your code is working as expected, then commit your code with an appropriate commit message like "APPROPRIATE MESSAGE"
+You might see some odd behaviour from the flee behaviour where the agent gets stuck on the edge of the world. This is because of the wrap around behaviour that we wrote, and how the distance to the flee target changes drastically at the edge. To fix this (as an extension task) you could calculate the distance to multiple flee targets (the one in the world and the ones in the three closest adjacent screens.
 
-## 6. Arrive at the Mouse
+Test your code is working as expected, then commit your code with an appropriate commit message like "Added flee behaviour"
 
-### Know your next commit!
+### Summary
 
-### Test and commit your code to source control
-
-Test your code is working as expected, then commit your code with an appropriate commit message like "APPROPRIATE MESSAGE"
-
-## 7. Flee from at the Mouse
-
-### Know your next commit!
-
-### Test and commit your code to source control
-
-Test your code is working as expected, then commit your code with an appropriate commit message like "APPROPRIATE MESSAGE"
+In this lab you've created some simple agent behaviours to govern the behaviour of the simulation. In the next lab we will expand on this by adding other individual agent behaviours and group behaviours.
