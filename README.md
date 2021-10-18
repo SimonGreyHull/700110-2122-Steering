@@ -126,6 +126,8 @@ Then integrate the current velocity by the acceleration by adding on the change 
 
 ### Test and commit your code to source control
 
+You will notice that once your agent reaches its target it will start to oscillate around it. As an extension task you could add some logic to change the target to a new one when the agent reaches it?
+
 Test your code is working as expected, then commit your code with an appropriate commit message like "Added seek behaviour"
 
 ## 5. Add Flee Behaviour
